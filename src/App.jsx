@@ -23,6 +23,8 @@ function App() {
     }
   }, [fetchNextPage, hasNextPage, isFetching, inView]);
 
+  const leadBeforeFetch = "320px";
+
   return status === "pending" ? <div>Loading...</div> :
   status === "error" ? <div>{error.message}</div> :
   <div className="flex flex-col gap-2">
@@ -30,12 +32,12 @@ function App() {
       return <div key={page.currentPage} className="flex flex-col gap-2">
         {page.data.map((pokemon) => {
           return <div key={pokemon.name} className="rounded-md bg-grayscale-700 p-4">
-            <img src={pokemon.sprites.front_default} style={{height: "32px", verticalAlign: "middle"}} />{pokemon.name}
+            <img src={pokemon.sprites.front_default} style={{height: "32px", verticalAlign: "middle"}} /> {pokemon.name}
           </div>
         })}
       </div>
     })}
-    <div ref={ref}></div>
+    <div style={{position: "relative"}}><div ref={ref} style={{position: "absolute", top: "-" + leadBeforeFetch, width: "100%", height: leadBeforeFetch, backgroundColor: "#000", opacity: "0.1"}}></div></div>
   </div>
 }
 
