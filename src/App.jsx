@@ -30,7 +30,7 @@ function App() {
       return <div key={page.currentPage} className="flex flex-col gap-2">
         {page.data.map((pokemon) => {
           return <div key={pokemon.name} className="rounded-md bg-grayscale-700 p-4">
-            <img src={pokemon.sprites.front_default} style={{width: "32px", verticalAlign: "middle"}} />{pokemon.name}
+            <img src={pokemon.sprites.front_default} style={{height: "32px", verticalAlign: "middle"}} />{pokemon.name}
           </div>
         })}
       </div>
